@@ -23,6 +23,12 @@ const config = {
 			// Typography
 			smartypants: true,
 
+			highlight: {
+				alias: {
+					dm: "csharp"
+				}
+			},
+
 			// Adds IDs to headings, and anchor links to those IDs. Note: must stay in this order to work.
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
 		})
