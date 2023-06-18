@@ -5,7 +5,6 @@
 *:after {
 	box-sizing: border-box;
 	font-family: inherit;
-	max-width: 100%;
 }
 
 main {
@@ -99,7 +98,7 @@ li {
 			width: 1rem;
 			height: 1rem;
 			top: 0;
-			opacity: 0.2;
+			opacity: 0.1;
 			transition: opacity 0.2s;
 
 			@media (min-width: vars.$smMin) {
