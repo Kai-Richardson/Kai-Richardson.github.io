@@ -37,6 +37,11 @@ img {
 	width: 100%;
 	max-width: 100%;
 	height: auto;
+
+	&.inline {
+		display: inline-block;
+		width: auto;
+	}
 }
 
 .post {

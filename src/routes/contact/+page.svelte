@@ -1,7 +1,6 @@
 <script>
 	import Callout from '$lib/components/Callout.svelte';
 	import LogoGithub from 'svelte-ionicons/LogoGithub.svelte';
-	import LogoInstagram from 'svelte-ionicons/LogoInstagram.svelte';
 	import LogoLinkedin from 'svelte-ionicons/LogoLinkedin.svelte';
 </script>
 
@@ -21,11 +20,6 @@ I am on a few websites:
 	<li>
 		<a href="https://linkedin.com/in/kairichardson" target="_blank" rel="noreferrer">
 			<LogoLinkedin /> kairichardson
-		</a>
-	</li>
-	<li>
-		<a href="https://instagram.com/pieguykai" target="_blank" rel="noreferrer">
-			<LogoInstagram /> pieguykai
 		</a>
 	</li>
 </ul>
