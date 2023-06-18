@@ -12,6 +12,18 @@ main {
 	max-width: 42rem;
 	margin: 6rem auto;
 	padding: 0 1rem;
+
+	@supports not (selector(:has(.page-resume))) {
+		&:before {
+			content: "Firefox doesn't support the :has selector by default currently so this might look broken.";
+			color: red;
+		}
+	}
+
+	// For /only/ the resume page, we want to make it wider
+	&:has(.page-resume) {
+		max-width: 82rem;
+	}
 }
 
 .layout {

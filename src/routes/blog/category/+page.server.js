@@ -17,7 +17,9 @@ export const load = async ({ url, fetch }) => {
 		});
 	});
 
-	const sortedUniqueCategories = Object.values(uniqueCategories).sort((a, b) => a.title > b.title);
+	const sortedUniqueCategories = Object.values(uniqueCategories).sort(
+		(a, b) => a.title > b.title
+	);
 
 	return {
 		uniqueCategories: sortedUniqueCategories
