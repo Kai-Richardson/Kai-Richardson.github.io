@@ -11,6 +11,7 @@ jobs:
 
       - name: Generate Page
         run: |
+          npm install
           npm run build
 
       - name: Upload GitHub Pages artifact
