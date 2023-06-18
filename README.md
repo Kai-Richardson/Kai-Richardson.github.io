@@ -14,7 +14,6 @@ You can run `npm run build` locally to generate the static files. That will resu
 
 Use `npm run preview` _after_ a build to preview the built site locally.
 
-
 ## Adding new posts
 
 Adding new posts is as simple as dropping a new `.md` file into `src/lib/posts`. New posts will automatically show up on the site, be added to the posts API, and any category pages.
@@ -36,6 +35,7 @@ Pagination automatically kicks in once you have more posts than the `postsPerPag
 **Note:** both the normal `/blog` feed _and_ the category feeds at `/category/[category]` are automatically paginated.
 
 ## LICENSE
+
 **MIT**
 
 Originally based off of https://github.com/josh-collinsworth/sveltekit-blog-starter with lots of modifications.

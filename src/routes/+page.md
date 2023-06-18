@@ -24,8 +24,8 @@ Primarily working on robust APIs and integrations w/ C# .NET, DevOps on Azure & 
 
 ### Things I've Done
 
-- Not quite *done*, but I'm giving a talk at [FOSSY 2023](https://2023.fossy.us).
-- Many other tiny projects
+-   Not quite _done_, but I'm giving a talk at [FOSSY 2023](https://2023.fossy.us).
+-   Many other tiny projects
 
 ## Things I've Used
 
@@ -35,8 +35,8 @@ Primarily working on robust APIs and integrations w/ C# .NET, DevOps on Azure & 
     }
 </style>
 
-| Tech           | Language |Tooling         |
-|----------------|----------|----------------|
+| Tech           | Language | Tooling        |
+| -------------- | -------- | -------------- |
 | React & Svelte | JS & TS  | GitHub Actions |
 | Kubernetes     | Rust     | Azure DevOps   |
 | Terraform      | C#       | VSCode & Rider |

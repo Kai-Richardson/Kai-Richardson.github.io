@@ -25,7 +25,7 @@ const config = {
 
 			highlight: {
 				alias: {
-					dm: "csharp"
+					dm: 'csharp'
 				}
 			},
 
