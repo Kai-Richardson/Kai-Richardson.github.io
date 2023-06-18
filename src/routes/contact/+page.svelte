@@ -1,6 +1,8 @@
 <script>
 	import Callout from '$lib/components/Callout.svelte';
-	import { LogoGithub, LogoInstagram, LogoLinkedin } from 'svelte-ionicons';
+	import LogoGithub from 'svelte-ionicons/LogoGithub.svelte';
+	import LogoInstagram from 'svelte-ionicons/LogoInstagram.svelte';
+	import LogoLinkedin from 'svelte-ionicons/LogoLinkedin.svelte';
 </script>
 
 <svelte:head>
