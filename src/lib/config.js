@@ -3,7 +3,7 @@
  * in the <meta> tags, in the footer, and in the RSS feed.
  **/
 
-export const siteTitle = 'Kai Richardson&apos;s Website';
+export const siteTitle = "Kai Richardson's Website";
 export const siteDescription = 'FOOBAR';
 export const siteURL = 'kairichardson.com';
 export const siteLink = 'https://github.com/Kai-Richardson/Kai-Richardson.github.io';
