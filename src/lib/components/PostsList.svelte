@@ -8,6 +8,7 @@
 			<article>
 				<a href="/blog/{post.slug}">
 					<img
+						class="cover-image"
 						src={post.coverImage}
 						alt=""
 						width={post.coverWidth}
