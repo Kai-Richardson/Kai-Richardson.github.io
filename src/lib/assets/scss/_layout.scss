@@ -9,7 +9,7 @@
 
 main {
 	width: 100%;
-	max-width: 42rem;
+	max-width: 50rem;
 	margin: 6rem auto;
 	padding: 0 1rem;
 
@@ -22,7 +22,7 @@ main {
 
 	// For /only/ the resume page, we want to make it wider
 	&:has(.page-resume) {
-		max-width: 82rem;
+		max-width: 65rem;
 	}
 }
 
