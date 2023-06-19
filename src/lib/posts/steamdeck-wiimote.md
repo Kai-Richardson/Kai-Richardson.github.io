@@ -35,7 +35,7 @@ So, Naturally™️ I need to ✨declutter my life✨ and emulate the Wii on the
 However, the Wii is a complex piece of hardware. Emulating it these days is easy enough with [Dolphin](https://dolphin-emu.org/),
 but the _wiimotes_ are another story. They have an infrared camera, and accelerometer, and potentially[^1] a gyroscope.
 
-But, the weirdest part is that these complicated little sticks do this all over ***Bluetooth***. Yes, these controllers released in <u>2006</u>.
+But, the weirdest part is that these complicated little sticks do this all over **_Bluetooth_**. Yes, these controllers released in <u>2006</u>.
 
 Naturally, they're a bit funky about it, but that means they can (at least in theory[^2]) work with modern devices! 🎉
 
@@ -55,17 +55,20 @@ First, we need to modify SteamOS to allow Dolphin to use [Bluetooth Passthrough]
 You'll need to add a `sudo` password via `passwd` if you haven't already.
 
 To disable the read-only protection (❗potentially dangerous ❗):
+
 ```sh
 sudo steamos-readonly disable
 ```
 
 Then, we need to go to: `/etc/udev/rules.d/` and create a new file named `52-dolphin.rules`.
 The contents should be:
+
 ```
 # Wiimotes
 SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0306", TAG+="uaccess"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0330", TAG+="uaccess"
 ```
+
 The first is for original (white) controllers, the second is the Motion Plus (blue) one.
 <Callout>
 If you use different or non-genuine controllers (no Wii logo), you'll need to get the <b>V</b>endor <b>ID</b> and <b>P</b>roduct <b>ID</b>. This can be found in a lot of different ways.
@@ -75,6 +78,7 @@ I connected them to Windows and used Device Manager -> Details -> Hardware IDs.
 Then, you can reload the rules as [here](https://wiki.dolphin-emu.org/index.php?title=Bluetooth_Passthrough#Linux), but I would just reboot the Deck to be sure.
 
 Once that is done, you can re-enable the read-only protection.
+
 ```sh
 sudo steamos-readonly enable
 ```
@@ -98,11 +102,10 @@ If the button you want isn't bound to anything yet, you need to open up Steam an
 
 For the next part, you'll have to have a game running while you do this. I recommend having `Graphics Settings -> Start in Fullscreen` unchecked.
 
-* Hold down the actual sync button[^3] on the controller.
-* Press your bound button on the Steam Deck every few seconds.
+-   Hold down the actual sync button[^3] on the controller.
+-   Press your bound button on the Steam Deck every few seconds.
 
 That's it! It should just work. For me, all Wiimote functionality including the speakers worked, besides remembering the pairing.
-
 
 [^1]: Gyroscopes are included in the Motion Plus controllers (or extensions).
 [^2]: The nightmare of Bluetooth protocol stacks will not be covered here, thankfully.
