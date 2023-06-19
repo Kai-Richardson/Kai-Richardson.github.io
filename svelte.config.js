@@ -3,6 +3,8 @@ import { mdsvex } from 'mdsvex';
 import preprocess from 'svelte-preprocess';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import remarkGemoji from 'remark-gemoji';
+import remarkTwemoji from 'remark-twemoji';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -28,6 +30,12 @@ const config = {
 					dm: 'csharp'
 				}
 			},
+
+			// For markdown transformation
+			remarkPlugins: [
+				remarkGemoji,
+				remarkTwemoji
+			],
 
 			// Adds IDs to headings, and anchor links to those IDs. Note: must stay in this order to work.
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
