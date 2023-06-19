@@ -3,7 +3,6 @@ import { mdsvex } from 'mdsvex';
 import preprocess from 'svelte-preprocess';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
-import remarkGemoji from 'remark-gemoji';
 import remarkTwemoji from 'remark-twemoji';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -33,7 +32,6 @@ const config = {
 
 			// For markdown transformation
 			remarkPlugins: [
-				remarkGemoji,
 				remarkTwemoji
 			],
 

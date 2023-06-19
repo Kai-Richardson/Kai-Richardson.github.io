@@ -20,7 +20,6 @@
 		"prettier-plugin-svelte": "^2.9.0",
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-slug": "^5.1.0",
-		"remark-gemoji": "^7.0.1",
 		"remark-twemoji": "^0.1.1",
 		"sass": "^1.57.1",
 		"svelte": "^3.55.0",
