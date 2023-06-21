@@ -30,9 +30,9 @@
 </script>
 
 <div class="page-resume">
-	(I really need to update this, sorry.)
+	(A bit out of date)
 	<br />
-	Last Updated: <code>2022</code>
+	Last Updated: <code>2023</code>
 	<br />
 	<canvas use:loadPDF="{{ url: '/assets/KaiRichardson-Resume.pdf' }}"></canvas>
 </div>
