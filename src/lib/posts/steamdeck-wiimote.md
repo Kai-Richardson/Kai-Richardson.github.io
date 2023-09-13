@@ -94,7 +94,7 @@ In Dolphin, open the `Controller Settings` dialog, then select the "Passthrough 
 You'll want an easy way to sync the controllers to the Deck, as they won't automatically connect. Under `Hotkey Settings`, go to `Wii and Wii Remote`.
 
 Then, you'll want to bind a button of your choice to the `Press Sync Button` option.
-I chose a back paddle button[^4]. I would also bind `General -> Toggle Fullscreen` while you're here.
+I chose a back paddle button[^3]. I would also bind `General -> Toggle Fullscreen` while you're here.
 
 <Callout>
 If the button you want isn't bound to anything yet, you need to open up Steam and set it there. Go to Steam -> Settings -> Controller -> Desktop Layout.
@@ -102,12 +102,12 @@ If the button you want isn't bound to anything yet, you need to open up Steam an
 
 For the next part, you'll have to have a game running while you do this. I recommend having `Graphics Settings -> Start in Fullscreen` unchecked.
 
--   Press the actual sync button[^3] on the controller.
+-   Press the actual sync button[^4] on the controller.
 -   Press your bound 'sync' button on the Steam Deck every few seconds.
 
 That's it! It should just work. For me, all Wiimote functionality including the speakers worked, besides remembering the pairing.
 
 [^1]: Gyroscopes are included in the Motion Plus controllers (or extensions).
 [^2]: The nightmare of Bluetooth protocol stacks will not be covered here, thankfully.
-[^3]: Pressing 1+2 (for 'One Time Mode') hasn't worked for me.
-[^4]: Well, these days I actually use the back paddle on my Steam Controller.
+[^3]: Well, these days I actually use the back paddle on my Steam Controller.
+[^4]: Pressing 1+2 (for 'One Time Mode') hasn't worked for me.
