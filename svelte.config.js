@@ -42,8 +42,8 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			'$lib': './src/lib',
-			'$lib/*': './src/lib/*',
+			$lib: './src/lib',
+			'$lib/*': './src/lib/*'
 		},
 		prerender: {
 			entries: [

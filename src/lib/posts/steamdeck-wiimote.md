@@ -108,6 +108,9 @@ For the next part, you'll have to have a game running while you do this. I recom
 That's it! It should just work. For me, all Wiimote functionality including the speakers worked, besides remembering the pairing.
 
 [^1]: Gyroscopes are included in the Motion Plus controllers (or extensions).
+
 [^2]: The nightmare of Bluetooth protocol stacks will not be covered here, thankfully.
+
 [^3]: Well, these days I actually use the back paddle on my Steam Controller.
+
 [^4]: Pressing 1+2 (for 'One Time Mode') hasn't worked for me.
