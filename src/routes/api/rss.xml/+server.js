@@ -32,13 +32,13 @@ const render = (posts) => `<?xml version="1.0" encoding="UTF-8" ?>
 <title>${siteTitle}</title>
 <description>${siteDescription}</description>
 <link>${siteLink}</link>
-<atom:link href="https://${siteURL}/api/rss.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="${siteURL}/api/rss.xml" rel="self" type="application/rss+xml"/>
 ${posts
 	.map(
 		(post) => `<item>
-<guid isPermaLink="true">https://${siteURL}/blog/${post.slug}</guid>
+<guid isPermaLink="true">${siteURL}/blog/${post.slug}</guid>
 <title>${post.title}</title>
-<link>https://${siteURL}/blog/${post.slug}</link>
+<link>${siteURL}/blog/${post.slug}</link>
 <description>${post.excerpt}</description>
 <pubDate>${new Date(post.date).toUTCString()}</pubDate>
 </item>`
