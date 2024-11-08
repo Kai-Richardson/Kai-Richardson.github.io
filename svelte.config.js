@@ -1,9 +1,9 @@
 import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
-import preprocess from 'svelte-preprocess';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkTwemoji from 'remark-twemoji';
+import { sveltePreprocess } from 'svelte-preprocess'
 import footnotes from 'remark-footnotes';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -12,7 +12,7 @@ const config = {
 	extensions: ['.svelte', '.md'],
 
 	preprocess: [
-		preprocess({
+		sveltePreprocess({
 			scss: {
 				// Ensures Sass variables are always available inside component <style> blocks as vars.$variableDefinedInFile
 				prependData: `@use 'src/lib/assets/scss/vars';`
