@@ -4,7 +4,8 @@
  **/
 
 export const siteTitle = "Kai's Zone";
-export const siteDescription = 'FOOBAR';
+export const siteDescription = 'My little site I infrequently post on.';
+export const localhostURL = "http://localhost:5173"
 export const siteURL = 'kairichardson.com';
 export const siteLink = 'https://github.com/Kai-Richardson/Kai-Richardson.github.io';
 export const siteAuthor = 'Kai Richardson';

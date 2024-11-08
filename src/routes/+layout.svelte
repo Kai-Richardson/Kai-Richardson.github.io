@@ -4,10 +4,11 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { currentPage, isMenuOpen } from '$lib/assets/js/store';
-	import { navItems } from '$lib/config';
+	import { navItems } from '$lib/config.js';
 	import { preloadCode } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { siteTitle, siteURL } from '$lib/config.js';
 	export let data;
 
 	const transitionIn = { delay: 150, duration: 150 };
@@ -33,7 +34,16 @@
 	});
 </script>
 
-<!-- 
+<svelte:head>
+	<link
+		rel="alternate"
+		type="application/rss+xml"
+		title={siteTitle}
+		href="http://{siteURL}/api/rss.xml"
+	/>
+</svelte:head>
+
+<!--
 	The below markup is used on every page in the site. The <slot> is where the page's
 	actual contents will show up.
 -->

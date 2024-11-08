@@ -5,6 +5,10 @@
 	const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
 		data.meta;
 	const { PostContent } = data;
+
+	import { localhostURL, siteURL} from "$lib/config.js"
+	const baseURL = process.env.NODE_ENV === 'production' ? siteURL : localhostURL;
+	const fullCoverImage = `${baseURL}${coverImage}`;
 </script>
 
 <svelte:head>
@@ -16,10 +20,10 @@
 	<meta name="twitter:title" content={title} />
 	<meta property="og:description" content={excerpt} />
 	<meta name="twitter:description" content={excerpt} />
-	<!-- <meta property="og:image" content="https://yourdomain.com/image_path" /> -->
+	<meta property="og:image" content={fullCoverImage} />
 	<meta property="og:image:width" content={coverWidth} />
 	<meta property="og:image:height" content={coverHeight} />
-	<!-- <meta name="twitter:image" content="https://yourdomain.com/image_path" /> -->
+	<meta name="twitter:image" content="fullCoverImage" />
 </svelte:head>
 
 <article class="post">
