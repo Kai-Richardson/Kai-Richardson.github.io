@@ -1,14 +1,20 @@
 <script>
-	import { postsPerPage } from '$lib/config';
+	import { postsPerPage } from '$lib/config'
 
-	export let currentPage;
-	export let totalPosts;
-	export let path = '/blog/page';
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} currentPage
+	 * @property {any} totalPosts
+	 * @property {string} [path]
+	 */
 
-	let pagesAvailable;
-	$: pagesAvailable = Math.ceil(totalPosts / postsPerPage);
+	/** @type {Props} */
+	let { currentPage, totalPosts, path = '/blog/page' } = $props();
 
-	const isCurrentPage = (page) => page == currentPage;
+	let pagesAvailable = $derived(Math.ceil(totalPosts / postsPerPage))
+
+
+	const isCurrentPage = (page) => page == currentPage
 </script>
 
 <!-- For some reason, the pagination wasn't re-rendering properly during navigation without the #key block -->
@@ -16,9 +22,9 @@
 	{#if pagesAvailable > 1}
 		<nav aria-label="Pagination navigation" class="pagination">
 			<ul>
-				{#each Array.from({ length: pagesAvailable }, (_, i) => i + 1) as page}
+				{#each Array.from({length: pagesAvailable}, (_, i) => i + 1) as page}
 					<li>
-						<a href="{path}/{page}" aria-current={isCurrentPage(page)}>
+						<a href="{path}/{page}" aria-current="{isCurrentPage(page)}">
 							<span class="sr-only">
 								{#if isCurrentPage(page)}
 									Current page:

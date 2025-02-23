@@ -11,6 +11,26 @@ const config = {
 	// Ensures both .svelte and .md files are treated as components (can be imported and used anywhere, or used as pages)
 	extensions: ['.svelte', '.md'],
 
+	kit: {
+		adapter: adapter(),
+		alias: {
+			$lib: './src/lib',
+			'$lib/*': './src/lib/*'
+		},
+		prerender: {
+			entries: [
+				'*',
+				'/api/posts/page/*',
+				'/blog/category/*/page/',
+				'/blog/category/*/page/*',
+				'/blog/category/page/',
+				'/blog/category/page/*',
+				'/blog/page/',
+				'/blog/page/*'
+			]
+		}
+	},
+
 	preprocess: [
 		sveltePreprocess({
 			scss: {
@@ -37,27 +57,7 @@ const config = {
 			// Adds IDs to headings, and anchor links to those IDs. Note: must stay in this order to work.
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
 		})
-	],
-
-	kit: {
-		adapter: adapter(),
-		alias: {
-			$lib: './src/lib',
-			'$lib/*': './src/lib/*'
-		},
-		prerender: {
-			entries: [
-				'*',
-				'/api/posts/page/*',
-				'/blog/category/*/page/',
-				'/blog/category/*/page/*',
-				'/blog/category/page/',
-				'/blog/category/page/*',
-				'/blog/page/',
-				'/blog/page/*'
-			]
-		}
-	}
+	]
 };
 
 export default config;

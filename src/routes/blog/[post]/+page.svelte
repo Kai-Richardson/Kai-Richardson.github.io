@@ -1,13 +1,14 @@
 <!-- This file renders each individual blog post for reading. Be sure to update the svelte:head below -->
 <script>
-	export let data;
+	let { data } = $props();
 
 	const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
 		data.meta;
 	const { PostContent } = data;
 
-	import { localhostURL, siteURL} from "$lib/config.js"
-	const baseURL = process.env.NODE_ENV === 'production' ? siteURL : localhostURL;
+	import { localhostURL, siteURL } from "$lib/config.js"
+	import { dev } from '$app/environment';
+	const baseURL = dev ? localhostURL : siteURL;
 	console.log(baseURL);
 	console.log(coverImage);
 	const fullCoverImage = `${baseURL}${coverImage}`;
@@ -49,7 +50,7 @@
 		{updated}
 	</div>
 
-	<svelte:component this={PostContent} />
+	<PostContent />
 
 	{#if categories}
 		<aside class="post-footer">
