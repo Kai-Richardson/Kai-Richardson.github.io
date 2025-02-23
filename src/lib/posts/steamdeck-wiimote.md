@@ -102,8 +102,8 @@ If the button you want isn't bound to anything yet, you need to open up Steam an
 
 For the next part, you'll have to have a game running while you do this. I recommend having `Graphics Settings -> Start in Fullscreen` unchecked.
 
--   Press the actual sync button[^4] on the controller.
--   Press your bound 'sync' button on the Steam Deck every few seconds.
+- Press the actual sync button[^4] on the controller.
+- Press your bound 'sync' button on the Steam Deck every few seconds.
 
 That's it! It should just work. For me, all Wiimote functionality including the speakers worked, besides remembering the pairing.
 

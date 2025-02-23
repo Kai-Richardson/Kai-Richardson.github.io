@@ -3,7 +3,7 @@ import { mdsvex } from 'mdsvex';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkTwemoji from 'remark-twemoji';
-import { sveltePreprocess } from 'svelte-preprocess'
+import { sveltePreprocess } from 'svelte-preprocess';
 import footnotes from 'remark-footnotes';
 
 /** @type {import('@sveltejs/kit').Config} */
