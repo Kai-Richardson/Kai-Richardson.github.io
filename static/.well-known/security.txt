@@ -1,0 +1,5 @@
+Contact: mailto:kairichardson@gmail.com
+Encryption: https://kairichardson.com/gpg.asc
+Encryption: https://keys.openpgp.org/search?q=kairichardson@gmail.com
+Preferred-Languages: en
+Expires: 2027-05-13T00:00:00.000Z
