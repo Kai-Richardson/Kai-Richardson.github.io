@@ -71,5 +71,7 @@
 	<br />
 	Last Updated: <code>Feb. 2025</code>
 	<br />
-	<canvas use:loadPDF></canvas>
+	<a href="/assets/KaiRichardson-Resume.pdf" download style="display: block; cursor: pointer;">
+		<canvas use:loadPDF></canvas>
+	</a>
 </div>
