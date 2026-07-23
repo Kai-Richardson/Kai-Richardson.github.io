@@ -2,16 +2,15 @@
 <script>
 	let { data } = $props();
 
-	const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
-		data.meta;
-	const { PostContent } = data;
+	let { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
+		$derived(data.meta);
+	let { PostContent } = $derived(data);
 
 	import { localhostURL, siteURL } from "$lib/config.js"
 	import { dev } from '$app/environment';
 	const baseURL = dev ? localhostURL : siteURL;
 	console.log(baseURL);
-	console.log(coverImage);
-	const fullCoverImage = `${baseURL}${coverImage}`;
+	let fullCoverImage = $derived(`${baseURL}${coverImage}`);
 </script>
 
 <svelte:head>
@@ -56,7 +55,7 @@
 		<aside class="post-footer">
 			<h2>Posted in:</h2>
 			<ul>
-				{#each categories as category}
+				{#each categories as category (category)}
 					<li>
 						<a href="/blog/category/{category}/">
 							{category}

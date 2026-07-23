@@ -11,6 +11,11 @@ export default [
 	...eslintPluginSvelte.configs['flat/prettier'],
 	eslintConfigPrettier,
 	{
+		rules: {
+			'svelte/no-navigation-without-resolve': 'off'
+		}
+	},
+	{
 		ignores: ['.svelte-kit/*', 'build/*']
 	}
 ];

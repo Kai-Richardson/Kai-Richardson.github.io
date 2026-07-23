@@ -27,7 +27,7 @@ export const GET = async () => {
 
 //Be sure to review and replace any applicable content below!
 const render = (posts) => `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
 <title>${siteTitle}</title>
 <description>${siteDescription}</description>
@@ -41,6 +41,7 @@ ${posts
 <link>${siteURL}/blog/${post.slug}</link>
 <description>${post.excerpt}</description>
 <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+${post.updated ? `<dc:modified>${new Date(post.updated).toUTCString()}</dc:modified>` : ''}
 </item>`
 	)
 	.join('')}

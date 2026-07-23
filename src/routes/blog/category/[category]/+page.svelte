@@ -6,7 +6,7 @@
 
 	let { data } = $props();
 
-	const { page, posts, category, total } = data;
+	let { page, posts, category, total } = $derived(data);
 
 	// let lowerBound = $derived((page * postsPerPage) - (postsPerPage - 1) || 1)
 	// let upperBound = $derived(Math.min(page * postsPerPage, total))

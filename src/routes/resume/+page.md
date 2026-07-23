@@ -6,26 +6,64 @@
 # Resume
 
 <script>
-	import * as pdfjs from "pdfjs-dist";
-	export async function loadPDF(node, data) {
-		pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
-		const loadingTask = pdfjs.getDocument(data.url);
-		const pdf = await loadingTask.promise;
+	// Keep worker URL resolvable by Vite's static analysis at build time
+	const workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).href;
+
+	export async function loadPDF(node) {
+		const pdfjs = await import('pdfjs-dist');
+		pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+
+		const pdf = await pdfjs.getDocument({ url: '/assets/KaiRichardson-Resume.pdf' }).promise;
 		const page = await pdf.getPage(1);
-		const scale = 1.15 * (window.innerWidth / 1300);
-		const viewport = page.getViewport({ scale });
-		const canvas = node;
-		const context = canvas.getContext("2d");
+		// Natural PDF dimensions at scale 1 — used as the basis for all scaling
+		const naturalViewport = page.getViewport({ scale: 1 });
 
-		canvas.height = viewport.height;
-		canvas.width = viewport.width;
+		let currentRender = null;
 
-		const renderContext = {
-			canvasContext: context,
-			viewport: viewport,
+		async function render() {
+			// Cancel any render already in progress before starting a new one
+			if (currentRender) {
+				currentRender.cancel();
+				currentRender = null;
+			}
+
+			const containerWidth = node.parentElement?.clientWidth ?? window.innerWidth;
+			const dpr = window.devicePixelRatio || 1;
+			const scale = (containerWidth / naturalViewport.width) * dpr;
+			const viewport = page.getViewport({ scale });
+
+			// Physical canvas pixels (sharp on HiDPI screens)
+			node.width = viewport.width;
+			node.height = viewport.height;
+			// CSS display size stays at the logical container width
+			node.style.width = '100%';
+			node.style.height = 'auto';
+
+			const context = node.getContext('2d');
+			context.clearRect(0, 0, node.width, node.height);
+
+			currentRender = page.render({ canvasContext: context, viewport });
+			try {
+				await currentRender.promise;
+			} catch (e) {
+				if (e?.name !== 'RenderingCancelledException') throw e;
+			} finally {
+				currentRender = null;
+			}
+		}
+
+		await render();
+
+		// Re-render whenever the container is resized (handles orientation changes too)
+		const observer = new ResizeObserver(() => render());
+		observer.observe(node.parentElement ?? node);
+
+		return {
+			destroy() {
+				observer.disconnect();
+				if (currentRender) currentRender.cancel();
+			}
 		};
-
-		await page.render(renderContext);
 	}
 </script>
 
@@ -33,5 +71,5 @@
 	<br />
 	Last Updated: <code>Feb. 2025</code>
 	<br />
-	<canvas use:loadPDF="{{ url: '/assets/KaiRichardson-Resume.pdf' }}"></canvas>
+	<canvas use:loadPDF></canvas>
 </div>

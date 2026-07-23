@@ -1,7 +1,7 @@
 ---
 title: 'Wiimotes, the Steam Deck, and Dolphin'
 date: '2023-06-18'
-updated: '2023-09-13'
+updated: '2026-07-23'
 categories:
     - 'steamdeck'
     - 'hardware'
@@ -20,36 +20,26 @@ excerpt: This post explains how to get wiimotes working with a Steam Deck
 Note: I dumped these games using a homebrewed Wii from original disks. I'm not endorsing piracy in this article.
 </Callout>
 
-## The Beginning
+## The Problem
 
-So, the Wii and associated bits are somewhat an old piece of hardware these days.
-For most of my gaming needs, I end up using my Steam Deck or desktop computer - which are great.
-
-However, I'm really a fan of _not sitting down all the time_ - which is kinda what the Wii is all about.
-But, it's yet another thing that I have to plug into the TV, and the bits like the component video cables are showing their age.
-
-So, Naturally™️ I need to ✨declutter my life✨ and emulate the Wii on the Steam Deck. One less thing to worry about.
+For most of my gaming needs, I end up using my Steam Deck or desktop computer - which are great. But sometimes I want to boot up a Wii game.
 
 <img class="inline" align="right" alt="Wiimote" src="/images/blog/steamdeck-wiimote/wiimote.png" />
 
-However, the Wii is a complex piece of hardware. Emulating it these days is easy enough with [Dolphin](https://dolphin-emu.org/),
+Emulating the Wii these days is easy enough with [Dolphin](https://dolphin-emu.org/),
 but the _wiimotes_ are another story. They have an infrared camera, and accelerometer, and potentially[^1] a gyroscope.
 
-But, the weirdest part is that these complicated little sticks do this all over **_Bluetooth_**. Yes, these controllers released in <u>2006</u>.
+The weirdest part is that these little sticks do this all over **_Bluetooth_**. Yes, these controllers released in <u>2006</u>.
 
 Naturally, they're a bit funky about it, but that means they can (at least in theory[^2]) work with modern devices! 🎉
 
-So, I naturally tried to do it the dumb way (basic controller pairing), and... Nope. A less naïve approach would be needed.
-
-## The Problem
-
-So, it turns out that we don't want Steam Input to bind to the Wiimotes.
+It turns out that we don't want Steam Input to bind to the Wiimotes.
 
 It turns out what we want to happen is for Dolphin to take over the Bluetooth stack and talk with the controllers itself.
 
 ## The Solution
 
-### Linux Setup
+#### Linux Setup
 
 First, we need to modify SteamOS to allow Dolphin to use [Bluetooth Passthrough](https://wiki.dolphin-emu.org/index.php?title=Bluetooth_Passthrough#Linux) properly.
 You'll need to add a `sudo` password via `passwd` if you haven't already.
@@ -85,7 +75,7 @@ sudo steamos-readonly enable
 
 After that, it's time to set up Dolphin properly.
 
-### Dolphin Setup
+#### Dolphin Setup
 
 Go into Desktop Mode and open Dolphin. If you don't have it installed already, do so. I recommend [Emudeck](https://emudeck.com).
 
@@ -100,9 +90,9 @@ I chose a back paddle button[^3]. I would also bind `General -> Toggle Fullscree
 If the button you want isn't bound to anything yet, you need to open up Steam and set it there. Go to Steam -> Settings -> Controller -> Desktop Layout.
 </Callout>
 
-For the next part, you'll have to have a game running while you do this. I recommend having `Graphics Settings -> Start in Fullscreen` unchecked.
+For the next part, you'll have to have a game running while you do this. I recommend having `Graphics Settings -> Start in Fullscreen` unchecked. I have another keybind to then fullscreen the game.
 
-- Press the actual sync button[^4] on the controller.
+- Press the actual sync button[^4] on the controller (next to the batteries).
 - Press your bound 'sync' button on the Steam Deck every few seconds.
 
 That's it! It should just work. For me, all Wiimote functionality including the speakers worked, besides remembering the pairing.

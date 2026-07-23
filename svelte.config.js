@@ -4,7 +4,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkTwemoji from 'remark-twemoji';
 import { sveltePreprocess } from 'svelte-preprocess';
-import footnotes from 'remark-footnotes';
+import remarkGfm from 'remark-gfm';
+import remarkFootnotes from 'remark-footnotes';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -52,7 +53,7 @@ const config = {
 			},
 
 			// For markdown transformation
-			remarkPlugins: [footnotes, remarkTwemoji],
+			remarkPlugins: [remarkGfm, remarkFootnotes, remarkTwemoji],
 
 			// Adds IDs to headings, and anchor links to those IDs. Note: must stay in this order to work.
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]

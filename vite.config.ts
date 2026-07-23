@@ -3,6 +3,12 @@ import type { UserConfig } from 'vite';
 
 const config: UserConfig = {
 	plugins: [sveltekit()],
+	// resolve: {
+	// 	conditions: ['svelte']
+	// },
+	// optimizeDeps: {
+	// 	exclude: ['svelte-ionicons']
+	// },
 	server: {
 		fs: {
 			allow: ['.']
