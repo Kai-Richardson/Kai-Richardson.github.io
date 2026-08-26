@@ -45,6 +45,7 @@ img {
 	&.inline {
 		display: inline-block;
 		width: auto;
+		max-width: 100%;
 	}
 	&.emoji {
 		height: 1em;
