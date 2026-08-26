@@ -4,7 +4,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkTwemoji from 'remark-twemoji';
 import { sveltePreprocess } from 'svelte-preprocess';
-import remarkGfm from 'remark-gfm';
+// Pinned to v2: mdsvex bundles an old (pre-micromark) remark parser, so v3+ of
+// this plugin (and remark-gfm, which the bundled parser covers natively) are silent no-ops.
 import remarkFootnotes from 'remark-footnotes';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -53,7 +54,7 @@ const config = {
 			},
 
 			// For markdown transformation
-			remarkPlugins: [remarkGfm, remarkFootnotes, remarkTwemoji],
+			remarkPlugins: [remarkFootnotes, remarkTwemoji],
 
 			// Adds IDs to headings, and anchor links to those IDs. Note: must stay in this order to work.
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]

@@ -33,7 +33,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"remark-footnotes": "^4.0.1",
-		"remark-gfm": "^4.0.1"
+		"remark-footnotes": "^2.0.0"
 	}
 }
