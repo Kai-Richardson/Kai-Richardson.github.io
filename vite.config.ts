@@ -43,16 +43,25 @@ const config: UserConfig = {
 			],
 			adapter: adapter(),
 			prerender: {
-				entries: [
-					'*',
-					'/api/posts/page/*',
-					'/blog/category/*/page/',
-					'/blog/category/*/page/*',
-					'/blog/category/page/',
-					'/blog/category/page/*',
-					'/blog/page/',
-					'/blog/page/*'
-				]
+				// '*' crawls every page reachable by links. Paths containing '*' are NOT globs; they
+				// prerender pages literally named '*', so don't add them here.
+				entries: ['*'],
+				// Routes allowed to stay unseen by the crawler. Anything else unseen fails the build.
+				handleUnseenRoutes: ({ routes }) => {
+					const tolerated: Record<string, true> = {
+						// Pagination: only linked once there are more than postsPerPage posts.
+						'/blog/page/[page]': true,
+						'/blog/category/page/[page]': true,
+						'/blog/category/[category]/page/[page]': true,
+						// Never linked: redirect stub and an unreferenced API endpoint.
+						'/blog/category/[category]/page': true,
+						'/api/posts/page/[page]': true
+					};
+					const unexpected = routes.filter((r) => !Object.hasOwn(tolerated, r));
+					if (unexpected.length) {
+						throw new Error(`Unseen prerenderable routes: ${unexpected.join(', ')}`);
+					}
+				}
 			}
 		})
 	],

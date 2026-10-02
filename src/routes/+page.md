@@ -1,3 +1,8 @@
+<svelte:head>
+<title>Kai Richardson | Developer</title>
+<meta name="description" content="Full-Stack & FOSS Game Developer" />
+</svelte:head>
+
 <img class="inline" align="right" width="64px" alt="BeeBob gif" src="/images/beebob.gif" />
 
 # Hello!

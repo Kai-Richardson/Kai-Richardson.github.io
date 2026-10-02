@@ -13,7 +13,7 @@
 
 <svelte:head>
 	<title>Blog category - page {page}</title>
-	<meta data-key="description" name={siteDescription} />
+	<meta data-key="description" name="description" content={siteDescription} />
 </svelte:head>
 
 <!-- TODO: this is duplicated across multiple `+page.svelte` files -->
