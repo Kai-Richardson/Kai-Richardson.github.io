@@ -1,8 +1,8 @@
 <!-- Renders any page at /blog/category/* -->
 <script>
-	import PostsList from '$lib/components/PostsList.svelte';
-	import Pagination from '$lib/components/Pagination.svelte';
-	// import { postsPerPage } from '$lib/config';
+	import PostsList from '#lib/components/PostsList.svelte';
+	import Pagination from '#lib/components/Pagination.svelte';
+	// import { postsPerPage } from '#lib/config.js';
 
 	let { data } = $props();
 

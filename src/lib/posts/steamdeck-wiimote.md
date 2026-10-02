@@ -13,7 +13,7 @@ excerpt: This post explains how to get wiimotes working with a Steam Deck
 ---
 
 <script>
-	import Callout from '$lib/components/Callout.svelte';
+	import Callout from '#lib/components/Callout.svelte';
 </script>
 
 <Callout>
