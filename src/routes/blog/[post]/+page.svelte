@@ -1,4 +1,3 @@
-<!-- This file renders each individual blog post for reading. Be sure to update the svelte:head below -->
 <script>
 	let { data } = $props();
 
@@ -6,12 +5,13 @@
 		$derived(data.meta);
 	let { PostContent } = $derived(data);
 
-	import { localhostURL, siteURL } from "$lib/config.js"
-	import { dev } from '$app/environment';
+	import { localhostURL, siteURL } from "#lib/config.js";
+	import { dev } from '$app/env';
 	const baseURL = dev ? localhostURL : siteURL;
-	console.log(baseURL);
 	let fullCoverImage = $derived(`${baseURL}${coverImage}`);
 </script>
+
+<!-- This file renders each individual blog post for reading. Be sure to update the svelte:head below -->
 
 <svelte:head>
 	<!-- Be sure to add your image files and un-comment the lines below -->

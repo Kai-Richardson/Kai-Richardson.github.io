@@ -1,8 +1,9 @@
 <!-- Renders any page at /blog/category/* -->
 <script>
-	import PostsList from '$lib/components/PostsList.svelte';
-	import Pagination from '$lib/components/Pagination.svelte';
-	// import { postsPerPage } from '$lib/config';
+	import PostsList from '#lib/components/PostsList.svelte';
+	import Pagination from '#lib/components/Pagination.svelte';
+	import { siteDescription } from '#lib/config.js';
+	// import { postsPerPage } from '#lib/config.js';
 
 	let { data } = $props();
 
@@ -14,6 +15,7 @@
 
 <svelte:head>
 	<title>Category: {category}</title>
+	<meta data-key="description" name="description" content={siteDescription} />
 </svelte:head>
 
 <h1>Blog category: {category}</h1>

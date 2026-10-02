@@ -9,31 +9,34 @@
 		"check": "svelte-kit sync && tsc --noEmit"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.39",
-		"@sveltejs/adapter-static": "^3.0",
-		"@sveltejs/kit": "^2.17",
+		"@eslint/js": "^10.0.1",
+		"@sveltejs/adapter-static": "^4.0.0",
+		"@sveltejs/kit": "^3.0.0",
 		"@types/node": "^26.1.1",
-		"eslint": "^9.39",
+		"eslint": "^10.11.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.0",
+		"globals": "^17.13.0",
 		"mdsvex": "^0.12.8",
-		"pdfjs-dist": "^6.1",
+		"pdfjs-dist": "^6.3.289",
 		"prettier": "^3.5",
 		"prettier-plugin-svelte": "^4.0",
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-slug": "^6.0.0",
 		"remark-twemoji": "^0.1.1",
 		"sass": "^1.85",
-		"svelte": "^5.20",
+		"svelte": "^5.57.1",
 		"svelte-ionicons": "^3.0",
 		"svelte-preprocess": "^6.0",
 		"twemoji": "^14.0.2",
 		"typescript": "^6.0.3",
-		"vite": "^8.0"
+		"vite": "^8.0.12"
 	},
 	"type": "module",
 	"dependencies": {
-		"remark-footnotes": "^4.0.1",
-		"remark-gfm": "^4.0.1"
+		"remark-footnotes": "2.0.0"
+	},
+	"imports": {
+		"#lib/*": "./src/lib/*"
 	}
 }

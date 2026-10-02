@@ -1,15 +1,14 @@
-import fetchPosts from '$lib/assets/js/fetchPosts';
+import { postsPerPage } from '#lib/config.js';
+import fetchPosts from '#lib/assets/js/fetchPosts.js';
 
 export const load = async ({ params }) => {
 	const category = params.category;
-	const page = params.page || 1;
-	const options = { category, limit: -1 };
-	const { posts } = await fetchPosts(options);
+	const { posts: categoryPosts } = await fetchPosts({ category, limit: -1 });
 
 	return {
-		posts,
+		posts: categoryPosts.slice(0, postsPerPage),
 		category,
-		page,
-		total: posts.length
+		page: 1,
+		total: categoryPosts.length
 	};
 };

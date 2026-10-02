@@ -1,5 +1,6 @@
 <svelte:head>
 	<title>Asking Questions</title>
+	<meta name="description" content="How to ask good questions when getting help with development" />
 
 	<meta name="twitter:image:src" content="">
 	<meta name="twitter:site" content="Kai's Zone">

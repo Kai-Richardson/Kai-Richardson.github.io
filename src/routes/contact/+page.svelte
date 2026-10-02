@@ -1,10 +1,11 @@
 <script>
-	import Callout from '$lib/components/Callout.svelte';
+	import Callout from '#lib/components/Callout.svelte';
 	import { LogoGithub, LogoLinkedin } from 'svelte-ionicons';
 </script>
 
 <svelte:head>
 	<title>Contact</title>
+	<meta name="description" content="How to get in touch with Kai Richardson" />
 </svelte:head>
 
 <h1>Contact</h1>
