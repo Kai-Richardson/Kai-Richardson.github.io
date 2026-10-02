@@ -1,10 +1,12 @@
 <script>
+	import { siteDescription } from '#lib/config.js';
 	let { data } = $props();
 	let { uniqueCategories } = $derived(data);
 </script>
 
 <svelte:head>
 	<title>Blog | Categories</title>
+	<meta data-key="description" name="description" content={siteDescription} />
 </svelte:head>
 
 <div class="compressed-content">

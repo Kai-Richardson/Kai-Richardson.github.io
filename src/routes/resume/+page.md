@@ -1,6 +1,7 @@
 <svelte:head>
 
 <title>Resume</title>
+<meta name="description" content="Resume of Kai Richardson, Full-Stack & FOSS Game Developer" />
 </svelte:head>
 
 # Resume
