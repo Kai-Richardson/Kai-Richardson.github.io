@@ -12,7 +12,7 @@ excerpt: Timex Pay is dead, but the chip in the strap still works. So I cut it o
 ---
 
 <script>
-	import Callout from '$lib/components/Callout.svelte';
+	import Callout from '#lib/components/Callout.svelte';
 </script>
 
 ## The Problem
