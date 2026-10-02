@@ -14,7 +14,7 @@ export const load = async ({ params }) => {
 	let offset = page * postsPerPage - postsPerPage;
 
 	const { posts: categoryPosts } = await fetchPosts({ category, limit: -1 });
-	const { posts } = await fetchPosts({ offset, category });
+	const posts = categoryPosts.slice(offset, offset + postsPerPage);
 
 	return {
 		posts,
