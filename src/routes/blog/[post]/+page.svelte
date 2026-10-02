@@ -8,7 +8,6 @@
 	import { localhostURL, siteURL } from "#lib/config.js";
 	import { dev } from '$app/env';
 	const baseURL = dev ? localhostURL : siteURL;
-	console.log(baseURL);
 	let fullCoverImage = $derived(`${baseURL}${coverImage}`);
 </script>
 

@@ -1,3 +1,7 @@
+<svelte:head>
+<title>Kai Richardson | Developer</title>
+</svelte:head>
+
 <img class="inline" align="right" width="64px" alt="BeeBob gif" src="/images/beebob.gif" />
 
 # Hello!

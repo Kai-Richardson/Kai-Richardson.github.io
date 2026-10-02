@@ -43,16 +43,15 @@ const config: UserConfig = {
 			],
 			adapter: adapter(),
 			prerender: {
-				entries: [
-					'*',
-					'/api/posts/page/*',
-					'/blog/category/*/page/',
-					'/blog/category/*/page/*',
-					'/blog/category/page/',
-					'/blog/category/page/*',
-					'/blog/page/',
-					'/blog/page/*'
-				]
+				// '*' crawls every page reachable by links. Paths containing '*' are NOT globs; they
+				// prerender pages literally named '*', so don't add them here.
+				entries: ['*', '/blog/category/page'],
+				// Pagination routes are only linked once there are more posts than fit on one page, so
+				// they're legitimately unseen until then. Any other unseen route still fails the build.
+				handleUnseenRoutes: ({ routes, message }) => {
+					const unexpected = routes.filter((r) => !/\/page(\/\[page\])?$/.test(r));
+					if (unexpected.length) throw new Error(message);
+				}
 			}
 		})
 	],
