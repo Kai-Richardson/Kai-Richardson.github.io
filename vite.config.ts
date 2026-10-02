@@ -45,7 +45,7 @@ const config: UserConfig = {
 			prerender: {
 				// '*' crawls every page reachable by links. Paths containing '*' are NOT globs; they
 				// prerender pages literally named '*', so don't add them here.
-				entries: ['*', '/blog/category/page'],
+				entries: ['*'],
 				// Pagination routes are only linked once there are more posts than fit on one page, so
 				// they're legitimately unseen until then. Any other unseen route still fails the build.
 				handleUnseenRoutes: ({ routes, message }) => {
