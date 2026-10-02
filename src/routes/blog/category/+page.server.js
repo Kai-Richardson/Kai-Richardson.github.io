@@ -1,6 +1,7 @@
-export const load = async ({ url, fetch }) => {
-	const res = await fetch(`${url.origin}/api/posts.json`);
-	let posts = await res.json();
+import fetchPosts from '#lib/assets/js/fetchPosts.js';
+
+export const load = async () => {
+	const { posts } = await fetchPosts({ limit: -1 });
 
 	let uniqueCategories = {};
 
@@ -17,8 +18,8 @@ export const load = async ({ url, fetch }) => {
 		});
 	});
 
-	const sortedUniqueCategories = Object.values(uniqueCategories).sort(
-		(a, b) => a.title > b.title
+	const sortedUniqueCategories = Object.values(uniqueCategories).sort((a, b) =>
+		a.title.localeCompare(b.title)
 	);
 
 	return {
